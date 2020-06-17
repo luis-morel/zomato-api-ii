@@ -1,0 +1,123 @@
+/* General Styling */
+body {
+    background-color: rgb(243, 243, 243);
+    font-size: 18px;
+}
+
+/* Header Styling */
+header {
+    background: #cb202d;
+    color: white;
+    font-family: 'Source Sans Pro', sans-serif;
+    font-weight: bold;
+    padding: 5px 15px;
+}
+
+/* Form Styling */
+.wrapper {
+    margin: 25px 25px;
+}
+
+.formWrapper {
+    background-color: #cb202d;
+    border-radius: 5px;
+    margin: 0 auto;
+    padding: 10px 25px;
+    width: 960px;
+}
+.formWrapper span {
+    color: white;
+    font-family: 'Source Sans Pro', sans-serif;
+    font-size: 28px;
+    font-weight: bold;
+    padding-right: 20px;
+}
+
+input, .input {
+    border: none;
+    border-radius: 5px;
+    font-size: 15px;
+    margin-right: 5px;
+    padding: 12px 10px;
+    width: 300px;
+}
+
+.api-call, #resetButton {
+    background-color: #cb202d;
+    border: 2px solid white;
+    border-radius: 5px;
+    color: white;
+    cursor: pointer;
+    font-size: 15px;
+    font-weight: bold;
+    outline: none;
+    padding: 10px 10px;
+    width: 100px;
+}
+.api-call:hover, #resetButton:hover {
+    background:#D94148;
+}
+.api-call:active, #resetButton:active {
+    transform: translateY(4px);
+}
+.buttons {
+    background-color: #cb202d;
+    border: 2px solid white;
+    border-radius: 5px;
+    color: white;
+    cursor: pointer;
+    font-size: 15px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    margin-right: 10px;
+    outline: none;
+    padding: 4px;
+    width: 280px;
+}
+.buttons:hover {
+    background:#D94148;
+}
+.buttons:active {
+    transform: translateY(4px);
+}
+
+#cuisine-input {
+    display: none;
+}
+
+/* Restaurant List Styling */
+.resultsWrapper {
+    margin: 0 auto;
+    padding: 10px 25px;
+    width: 875px;
+}
+
+a:link, a:visited {
+    color: #cb202d;
+    text-decoration: none;
+}
+
+a:hover {
+    color: #D94148;
+}
+
+.venues {
+    background-color: white;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    padding: 10px;
+}
+
+.venueName {
+    color: #cb202d;
+    font-size: 27px;
+    font-weight: bold;
+}
+
+.venueCity {
+    font-weight: bold;
+}
+
+.venueCost {
+    color: teal;
+}
