@@ -19,17 +19,28 @@ $(document).ready(function () {
 
     };
 
+    const clearSearchResults = () => {
+
+        $('#search-header').empty();
+        $('#search-data').empty();
+        let searchHeader = $('#search-header').children().length,
+            searchData = $('#search-data').children().length;
+        if (searchHeader && searchData) return false
+        else return true;
+
+    }
+
     // Reset Search Tool Data
     const clearSearchToolData = (event) => {
 
+        $('#api-cuisine-search').css('display', 'unset');
         $('#cities').empty();
-        $('#cuisines').empty();
+        $('#city-input').attr('readonly', false).css('color', 'inherit').val('');
+        $('#cuisine-selection').css('display', 'none');
+        $('#cuisines').empty().val('');
+        $('datalist').css('display', 'none');
         $('#search-header').empty();
         $('#search-data').empty();
-        $('#city-input').val('');
-        $('#cuisines').val('');
-        $('datalist').css('display', 'none');
-        $('#cuisine-selection').css('display', 'none');
         $('#search-tool-reset').css('display', 'none');
 
     }
@@ -37,7 +48,7 @@ $(document).ready(function () {
     // Zomato API - City Search
     const handleCitySearch = (event) => {
 
-        if (event.key != undefined) {
+        if (event.key != undefined) {            
             let cityInput = $('#city-input').val().trim();
             $.ajax({
                 type: 'GET',
@@ -86,7 +97,7 @@ $(document).ready(function () {
             success: function (data) {
                 console.log('Zomato - Cuisine Data', data);
                 if (data.cuisines.length === 0)
-                    $('#search-data').html(`<p>Unable to locate restaurants serving ${cuisine}. Please try another cuisine.</p>`);
+                    $('#search-data').html(`<p>Unable to locate restaurants in this area. Please try a neighboring city.</p>`);
                 else {
                     for (let i = 0; i < data.cuisines.length; i++) {
                         let cuisine = data.cuisines[i].cuisine.cuisine_name,
@@ -96,7 +107,10 @@ $(document).ready(function () {
                         option.attr('data-cuisineId', id);
                         $('#cuisines').append(option);
                     }
+                    $('#api-cuisine-search').css('display', 'none');
+                    $('#city-input').attr('readonly', true).css('color', 'gray');
                     $('#cuisine-selection').css('display', 'block');
+                    $('#search-tool-reset').css('display', 'block');
                 };
             }
         });
@@ -116,8 +130,9 @@ $(document).ready(function () {
             dataType: 'json',
             success: function (data) {
                 console.log('Zomato - Restaurant Data', data);
-                let results = data.restaurants;
-                $('#search-data #search-header').empty();
+                let results = data.restaurants,
+                    resultsCleared = clearSearchResults();
+                // $('#search-data #search-header').empty();
                 if (results.length === 0)
                     $('#search-data').html(`<p>Unable to locate restaurants serving ${cuisineName}. Please try a different cuisine and/or city.</p>`);
                 else if (cuisineName === 'null' || cuisineName === '')
@@ -156,7 +171,7 @@ $(document).ready(function () {
                         mainDiv.addClass('venues');
                         $('#search-data').append(mainDiv);
                     };
-                    $('#search-tool-reset').css('display', 'block');
+                    // $('#search-tool-reset').css('display', 'block');
                 }
             }
         });
