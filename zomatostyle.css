@@ -1,49 +1,21 @@
 /* General Styling */
 body {
-    background-color: rgb(243, 243, 243);
-    font-size: 18px;
+    font-family: 'Source Sans Pro', sans-serif;
+    font-size: 16px;
+    margin: 0;
 }
 
-/* Header Styling */
 header {
-    background: #cb202d;
+    background: rgb(236, 70, 84);
     color: white;
-    font-family: 'Source Sans Pro', sans-serif;
+    font-size: 2rem;
     font-weight: bold;
-    padding: 5px 15px;
+    line-height: 5rem;
+    padding: 0 1rem;
 }
 
-/* Form Styling */
-.wrapper {
-    margin: 25px 25px;
-}
-
-.formWrapper {
-    background-color: #cb202d;
-    border-radius: 5px;
-    margin: 0 auto;
-    padding: 10px 25px;
-    width: 960px;
-}
-.formWrapper span {
-    color: white;
-    font-family: 'Source Sans Pro', sans-serif;
-    font-size: 28px;
-    font-weight: bold;
-    padding-right: 20px;
-}
-
-input, .input {
-    border: none;
-    border-radius: 5px;
-    font-size: 15px;
-    margin-right: 5px;
-    padding: 12px 10px;
-    width: 300px;
-}
-
-.api-call, #resetButton {
-    background-color: #cb202d;
+button {
+    background-color: rgb(237, 90, 107);
     border: 2px solid white;
     border-radius: 5px;
     color: white;
@@ -54,13 +26,64 @@ input, .input {
     padding: 10px 10px;
     width: 100px;
 }
-.api-call:hover, #resetButton:hover {
-    background:#D94148;
+
+button:hover {
+    background: rgb(236, 70, 84);
 }
-.api-call:active, #resetButton:active {
+
+button:active {
     transform: translateY(4px);
 }
-.buttons {
+
+input, select {
+    border: none;
+    border-radius: 10px;
+    font-size: 1rem;
+    margin-right: 5px;
+    outline: none;
+    padding: 10px;
+    width: 70%;
+}
+
+input:focus {
+    outline: none;
+}
+
+select {
+    width: 74%;
+}
+
+
+/* Zomato Search Tool Styling */
+#zomato-search-tool {
+    margin: 20px 20px;
+}
+
+#zomato-notice {
+    color: rgb(236, 70, 84);
+    font-size: 1.3rem;
+    margin: 1rem 0;
+}
+
+#zomato-logo {
+    height: 1.5rem;
+}
+
+.input-form {
+    border: 1px solid rgb(236, 70, 84);
+    border-radius: 10px;
+    margin: 20px 0;
+    padding: 5px;
+    width: 50%;
+}
+
+#search-tool-reset {
+    display: none;
+}
+
+
+/* Zomato API Results Styling */
+/* .buttons {
     background-color: #cb202d;
     border: 2px solid white;
     border-radius: 5px;
@@ -79,43 +102,50 @@ input, .input {
 }
 .buttons:active {
     transform: translateY(4px);
-}
+} */
 
-#cuisine-input {
+#cuisine-selection {
     display: none;
 }
 
-/* Restaurant List Styling */
-.resultsWrapper {
-    margin: 0 auto;
-    padding: 10px 25px;
-    width: 875px;
+/* Restaurant Results Styling */
+#search-results {
+    margin-top: 30px;
+    width: 50%;
+}
+
+#search-header {
+    font-size: 1.4rem;
+    margin-bottom: 30px;
 }
 
 a:link, a:visited {
-    color: #cb202d;
+    color: rgb(236, 70, 84);
     text-decoration: none;
 }
 
 a:hover {
-    color: #D94148;
+    color: rgb(237, 90, 107);
 }
 
 .venues {
-    background-color: white;
-    border-radius: 5px;
+    border: 1px solid gainsboro;
+    border-radius: 10px;
+    box-shadow: 5px 5px 5px 0px rgba(0,0,0,0.75);
+    line-height: 1.5rem;
     margin-bottom: 20px;
-    padding: 10px;
+    padding: 15px;
 }
 
 .venueName {
-    color: #cb202d;
+    color: rgb(236, 70, 84);
     font-size: 27px;
     font-weight: bold;
 }
 
 .venueCity {
     font-weight: bold;
+    padding-top: 5px;
 }
 
 .venueCost {

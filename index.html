@@ -1,41 +1,50 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
 
+<head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
     <script src="./zomatoapp.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="./zomatostyle.css">
+    <link rel="icon" type="image/png" href="https://b.zmtcdn.com/images/logo/zomato_logo_2017.png">
     <title>Restaurant Search</title>
-
 </head>
 
 <body>
-
     <header>
-        <h1>Restaurant Search Form - Powered by Zomato</h1>
+        <h1>Restaurant Search Form</h1>
     </header>
 
-    <div class="wrapper">
-        <div class="formWrapper">
-            <form>
-                <span>zomato</span>
-                <input type="text" name="city" id="city-input" placeholder="Enter a city...">
-                <select id="cuisine-input" class="input">
-                    <option value="null" selected disabled>Choose a cuisine...</option>
-                </select>
-                <button type="submit" class="api-call">Submit</button>
-                <button type="submit" id="resetButton">Reset</button>
-            </form>
+    <main id="zomato-search-tool">
+        <h2 id="zomato-notice">Powered by
+            <a href="https://www.zomato.com" target="_blank">
+                <img id="zomato-logo" alt="logo"
+                    src="https://b.zmtcdn.com//data/bdddded729eec1881d992117920afa5f1553759845.png">
+            </a>
+        </h2>
+        <div class="input-form" id="city-selection">
+            <input type="text" id="city-input" list="cities" placeholder="City Search">
+            <datalist id="cities"></datalist>
+            <button type="submit" id="api-cuisine-search">Submit</button>
         </div>
-        <div class="resultsWrapper">
-            <h2 id="head"></h2>
-            <div class="results" id="hits"></div>
+        <div class="input-form" id="cuisine-selection">
+            <select id="cuisines">
+                <option value="null" selected disabled>Choose a Cuisine</option>
+            </select>
+            <button type="submit" id="api-restaurant-search">Submit</button>
         </div>
-    </div>
+        <div id="search-tool-reset">
+            <button type="submit" id="clear-search-data">Reset</button>
+        </div>
+        <div id="search-results">
+            <h2 id="search-header"></h2>
+            <div id="search-data"></div>
+        </div>
+    </main>
 
 </body>
 
